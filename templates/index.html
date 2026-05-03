@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phishing Detector</title>
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">🔐 Phishing Detector</div>
+    <nav>
+        <a onclick="showSection('home')" class="nav-active">Home</a>
+        <a onclick="showSection('about')">About</a>
+        <a onclick="showSection('performance')">Performance</a>
+        <a onclick="showSection('contact')">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="section active">
+    <div class="home-container">
+        <div class="home-left">
+            <div class="ai-badge">🔐 AI POWERED</div>
+            <h1 class="home-title">Detect Phishing Websites with <span class="highlight">Machine Learning</span></h1>
+            <p class="home-description">Advanced ML model to analyze and detect phishing websites in real-time. Stay safe online.</p>
+            
+            <form id="predictionForm" method="post" action="/predict" class="input-section">
+                <label>Enter Website URL</label>
+                <div class="input-wrapper">
+                    <input type="text" name="url" placeholder="https://example.com" id="urlInput" required>
+                    <button type="submit" class="check-btn">🔒 CHECK NOW</button>
+                </div>
+            </form>
+            
+            <p class="security-text">🛡️ 100% Secure • Fast • Accurate</p>
+
+            {% if result %}
+            <div class="result {{ color }}" style="margin-top: 20px; padding: 15px; border-radius: 8px; text-align: center; font-weight: bold;">
+                {{ result }}
+            </div>
+            {% endif %}
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon ai-icon">🧠</div>
+                    <h3>AI Powered</h3>
+                    <p>Machine learning model for accurate detection</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon realtime-icon">⚡</div>
+                    <h3>Real-time Analysis</h3>
+                    <p>Analyze websites instantly and get quick results</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon accuracy-icon">🛡️</div>
+                    <h3>High Accuracy</h3>
+                    <p>Trained on large dataset for better precision</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon safe-icon">🔐</div>
+                    <h3>Stay Safe</h3>
+                    <p>Protect yourself from online phishing threats</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-right">
+            <div class="illustration">
+                <div class="browser-window">
+                    <div class="browser-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="browser-content">
+                        <div class="globe-icon">🌐</div>
+                        <div class="lines">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shield-icon">✓</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h1 class="title">About Project</h1>
+
+    <div class="about-card">
+        <h2>How it Works</h2>
+        <p>
+            The system takes a URL as input and extracts various features
+            such as domain information, URL structure, and lexical features.
+            These features are then passed to a trained ML model which
+            predicts whether the website is Safe or Phishing.
+        </p>
+
+        <h2>Technologies Used</h2>
+        <div class="technologies">
+            <div class="tech-badge">🐍 Python</div>
+            <div class="tech-badge">⚡ FastAPI</div>
+            <div class="tech-badge">🤖 XGBoost</div>
+            <div class="tech-badge">🎨 HTML</div>
+            <div class="tech-badge">🎭 CSS</div>
+            <div class="tech-badge">📱 JavaScript</div>
+        </div>
+
+        <h2>Model Performance</h2>
+        <div class="perf-metrics">
+            <div class="metric"><div class="value">85.84%</div><div class="label">Accuracy</div></div>
+            <div class="metric"><div class="value">86%</div><div class="label">Precision</div></div>
+            <div class="metric"><div class="value">86%</div><div class="label">Recall</div></div>
+            <div class="metric"><div class="value">86%</div><div class="label">F1-Score</div></div>
+        </div>
+
+        <h2>Developer</h2>
+        <div class="developer-info">
+            <p><b>Gopal Goswami</b></p>
+            <p>B.Tech Student | Passionate about Cybersecurity & AI</p>
+        </div>
+    </div>
+</section>
+
+<!-- PERFORMANCE -->
+<section id="performance" class="section">
+    <h1 class="title">Model Performance</h1>
+    <p style="margin-bottom: 30px; font-size: 16px;">Performance evaluation of the trained machine learning model on test data.</p>
+
+    <div class="perf-metrics-row">
+        <div class="metric-card">
+            <div class="metric-icon accuracy-icon">🎯</div>
+            <h3>Accuracy</h3>
+            <p class="metric-value">85.84%</p>
+            <p class="metric-desc">High accuracy on test data</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon precision-icon">✅</div>
+            <h3>Precision</h3>
+            <p class="metric-value">86%</p>
+            <p class="metric-desc">Low false positive rate</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon recall-icon">🎪</div>
+            <h3>Recall</h3>
+            <p class="metric-value">86%</p>
+            <p class="metric-desc">Low false negative rate</p>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon f1-icon">📊</div>
+            <h3>F1 Score</h3>
+            <p class="metric-value">86%</p>
+            <p class="metric-desc">Balanced performance</p>
+        </div>
+    </div>
+
+    <div class="perf-content">
+        <div class="performance-overview">
+            <h2>📊 Performance Overview</h2>
+            <canvas id="chart"></canvas>
+        </div>
+
+        <div class="confusion-matrix">
+            <h2>🔲 Confusion Matrix</h2>
+            <div class="matrix-header">
+                <div></div>
+                <div class="matrix-title">Predicted</div>
+            </div>
+            <div class="matrix-content">
+                <div class="matrix-label">Actual</div>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td class="header-cell">Safe</td>
+                        <td class="header-cell">Phishing</td>
+                    </tr>
+                    <tr>
+                        <td class="header-cell">Safe</td>
+                        <td class="tn">13370<br><span>(True Negative)</span></td>
+                        <td class="fp">2632<br><span>(False Positive)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="header-cell">Phishing</td>
+                        <td class="fn">1498<br><span>(False Negative)</span></td>
+                        <td class="tp">11659<br><span>(True Positive)</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="model-summary">
+        <div class="summary-content">
+            <h2>📋 Model Summary</h2>
+            <p>The model has been trained on a large dataset of phishing and legitimate URLs. It generalizes well on unseen data and achieves high performance across all metrics.</p>
+        </div>
+        <div class="overall-performance">
+            <div class="perf-badge">⭐</div>
+            <h3>Overall Performance</h3>
+            <p class="perf-status">Excellent</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h1 class="title">Contact <span style="color: #38bdf8;">Us</span></h1>
+    <p style="margin-bottom: 40px; font-size: 16px;">Have questions or suggestions? Feel free to reach out to us.</p>
+
+    <div class="contact-container">
+        <div class="contact-left">
+            <div class="contact-card">
+                <div class="contact-icon email-icon">📧</div>
+                <div>
+                    <h3>Email</h3>
+                    <p>gg1971393@gmail.com</p>
+                    <p style="font-size: 12px; color: #94a3b8;">We'll reply as soon as possible</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon phone-icon">📱</div>
+                <div>
+                    <h3>Phone</h3>
+                    <p>+91 6263911283</p>
+                    <p style="font-size: 12px; color: #94a3b8;">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon location-icon">📍</div>
+                <div>
+                    <h3>Location</h3>
+                    <p>India</p>
+                    <p style="font-size: 12px; color: #94a3b8;">Kumbhraj Guna, Madhya pradesh</p>
+                </div>
+            </div>
+
+            <div class="connect-section">
+                <h3>Connect with me</h3>
+                <div class="social-icons">
+                    <a href="https://github.com/Gopal-goswami" class="social-icon github"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/gopal-goswami-b43a35318/" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JS -->
+<script>
+function showSection(id) {
+    document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    
+    document.querySelectorAll(".navbar a").forEach(link => link.classList.remove("nav-active"));
+    event.target.classList.add("nav-active");
+}
+
+// Handle form submission
+document.getElementById('predictionForm').addEventListener('submit', async function(e) {
+    const button = this.querySelector('.check-btn');
+    const originalText = button.textContent;
+    
+    // Set loading state
+    button.disabled = true;
+    button.textContent = '⏳ CHECKING...';
+    
+    
+});
+</script>
+
+<!-- Chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+new Chart(document.getElementById("chart"), {
+    type: "bar",
+    data: {
+        labels: ["Accuracy", "Precision", "Recall", "F1"],
+        datasets: [{
+            data: [85.84, 86, 86, 86]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
