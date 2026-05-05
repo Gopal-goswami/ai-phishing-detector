@@ -127,7 +127,7 @@ def predict(request: Request, url: str = Form(...)):
     return templates.TemplateResponse(
     request=request,  
     name="index.html",
-    context={"result": output, "color": color}
+    context={"result": output, "color": color,"url": url}
 )
 
 

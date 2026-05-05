@@ -1611,3 +1611,6 @@ button {
 @media (min-width: 1025px) {
     /* Default styles already optimized for large screens */
 }
+html {
+    scroll-behavior: smooth;
+}

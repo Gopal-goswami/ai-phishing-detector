@@ -32,7 +32,7 @@
             <form id="predictionForm" method="post" action="/predict" class="input-section">
                 <label>Enter Website URL</label>
                 <div class="input-wrapper">
-                    <input type="text" name="url" placeholder="https://example.com" id="urlInput" required>
+                    <input type="text" name="url" placeholder="https://example.com" id="urlInput"  value="{{ url if url else '' }}" required>
                     <button type="submit" class="check-btn">🔒 CHECK NOW</button>
                 </div>
             </form>
@@ -247,8 +247,8 @@
             <div class="connect-section">
                 <h3>Connect with me</h3>
                 <div class="social-icons">
-                    <a href="https://github.com/Gopal-goswami" class="social-icon github"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/gopal-goswami-b43a35318/" class="social-icon linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Gopal-goswami" class="social-icon github" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/gopal-goswami-b43a35318/" class="social-icon linkedin" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
