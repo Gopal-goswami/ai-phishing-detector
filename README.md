@@ -46,7 +46,7 @@ The system correctly identifies legitimate websites with a confidence score.
 Example: `http://sbi-verification-update.com`
 The system warns users when a malicious/phishing website is detected.
 
-![Phishing Result](images/phishing.png)
+![Phishing Result](images/phising.png)
 
 ---
 
