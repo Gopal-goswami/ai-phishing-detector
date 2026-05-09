@@ -113,6 +113,14 @@ http://127.0.0.1:8000
 
 ---
 
+## Live Demo
+https://ai-phishing-detector-o4o2.onrender.com
+
+## API Docs
+https://ai-phishing-detector-o4o2.onrender.com/docs
+
+---
+
 ## 👨‍💻 Author
 
 **Gopal Goswami**
